@@ -24,7 +24,10 @@ class MainActivity : AppCompatActivity() {
         // set onClickListener for each item in RV
         val rvItemClickListener: (Beneficiary) -> Unit = {
             viewModel.onBeneficiarySelected(it)
-            startActivity(Intent(this, BeneficiaryDetailActivity::class.java))
+            supportFragmentManager
+                .beginTransaction()
+                .add(BeneficiaryDetailFragment(), BeneficiaryDetailFragment::class.simpleName)
+                .commit()
         }
 
         // Create adapter for RV and set
