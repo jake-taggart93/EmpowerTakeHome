@@ -14,8 +14,4 @@ class MainActivity : AppCompatActivity() {
             BeneficiaryListFragment::class.simpleName
         ).addToBackStack(BeneficiaryListFragment::class.simpleName).commit()
     }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
 }
