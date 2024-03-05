@@ -26,9 +26,10 @@ class BeneficiariesRecyclerViewAdapter(
 
     // Binds the beneficiary data to the custom view and assigns the onClick
     override fun onBindViewHolder(holder: BeneficiaryViewHolder, position: Int) {
-        holder.customView.setBeneficiary(items[position])
+        val item = items[position]
+        holder.customView.setBeneficiary(item)
         holder.itemView.rootView.setOnClickListener {
-            onClickListener(items[position])
+            onClickListener(item)
         }
     }
 

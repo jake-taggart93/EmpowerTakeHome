@@ -13,7 +13,10 @@ fun formatDate(dateStr: String): String {
 // Address Format
 fun formatAddress(address: Address): String {
     val builtAddress = StringBuilder(address.firstLineMailing).appendLine()
-    if (address.scndLineMailing != null) builtAddress.append(address.scndLineMailing)
+    if (!address.scndLineMailing.isNullOrEmpty() && address.scndLineMailing != "null") {
+        builtAddress.append(address.scndLineMailing)
+            .appendLine()
+    }
     builtAddress
         .append(address.city)
         .append(", ")

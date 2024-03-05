@@ -18,7 +18,7 @@ class BeneficiariesViewModel : ViewModel() {
     private val _beneficiaries = MutableStateFlow(emptyList<Beneficiary>())
     val beneficiaries = _beneficiaries.asLiveData()
 
-    var selectedBeneficiary: Beneficiary? = null
+    lateinit var selectedBeneficiary: Beneficiary
 
     init {
         // Invoke the repository collecting its data

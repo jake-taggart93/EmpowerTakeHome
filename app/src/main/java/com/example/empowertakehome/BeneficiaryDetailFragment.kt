@@ -8,15 +8,14 @@ import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.empowertakehome.ui.customview.BeneficiaryDetailView
 import com.example.empowertakehome.ui.viewmodel.BeneficiariesViewModel
 
-// Activity for showing detail view of each beneficiary when clicked from RecyclerView; please note TODO below
-// TODO: Due to prior engagements I needed to keep and the resulting time constraint, I was unable to finish this portion as I would have liked to
 class BeneficiaryDetailFragment : Fragment() {
 
-    private val viewModel: BeneficiariesViewModel by viewModels()
+    private val viewModel: BeneficiariesViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,5 +25,10 @@ class BeneficiaryDetailFragment : Fragment() {
         val view = BeneficiaryDetailView(requireContext())
         view.setBeneficiary(viewModel.selectedBeneficiary)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (view as BeneficiaryDetailView).setBeneficiary(viewModel.selectedBeneficiary)
     }
 }
